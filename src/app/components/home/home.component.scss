@@ -1,0 +1,33 @@
+.cont {
+  .arrow-left-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .arrow-right-container {
+    display: flex;
+    align-items: center;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .widget-wrapper {
+    float: left;
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .info-widget {
+      width: 20%;
+      display: inline-block;
+
+      img {
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+}

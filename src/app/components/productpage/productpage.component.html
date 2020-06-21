@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="category-wrapper pt-3 col-12">
+      <!-- <p class="category-header">Filtera film efter kategori:</p> -->
+      <div class="filter-button d-flex justify-content-center mb-3"><button class="btn"
+          (click)="showCategories()">Filtrera</button></div>
+      <div id="filter-categories" class="filter-categories d-none justify-content-center">
+        <button type="button" class="btn mx-2" (click)="getAllMovieCategories()">Alla filmer</button>
+        <button type="button" class="btn mx-2" (click)="filterAction()">Action</button>
+        <button type="button" class="btn mx-2" (click)="filterThriller()">Thriller</button>
+        <button type="button" class="btn mx-2" (click)="filterComedy()">Comedy</button>
+        <button type="button" class="btn mx-2" (click)="filterSciFi()">SciFi</button>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let movie of movieProducts">
+      <div *ngIf="allMovies">
+        <div class="prod-info-wrapper my-3 px-5 pt-2">
+          <p class="prod-name">{{movie.name}}</p>
+          <p class="img-wrapper"><img src={{movie.imageUrl}} alt={{movie.name}} (click)="goToProduct(movie)"></p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn" (click)="goToProduct(movie)">Läs mer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let movie of actionMovies">
+      <div *ngIf="actionControl">
+        <div class="prod-info-wrapper my-3 px-5 pt-2">
+          <p class="prod-name">{{movie.name}}</p>
+          <p class="img-wrapper"><img src={{movie.imageUrl}} alt={{movie.name}} (click)="goToProduct(movie)"></p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn" (click)="goToProduct(movie)">Läs mer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let movie of thrillerMovies">
+      <div *ngIf="thrillerControl">
+        <div class="prod-info-wrapper my-3 px-5 pt-2">
+          <p class="prod-name">{{movie.name}}</p>
+          <p class="img-wrapper"><img src={{movie.imageUrl}} alt={{movie.name}} (click)="goToProduct(movie)"></p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn" (click)="goToProduct(movie)">Läs mer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let movie of comedyMovies">
+      <div *ngIf="comedyControl">
+        <div class="prod-info-wrapper my-3 px-5 pt-2">
+          <p class="prod-name">{{movie.name}}</p>
+          <p class="img-wrapper"><img src={{movie.imageUrl}} alt={{movie.name}} (click)="goToProduct(movie)"></p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn" (click)="goToProduct(movie)">Läs mer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let movie of sciFiMovies">
+      <div *ngIf="sciFiControl">
+        <div class="prod-info-wrapper my-3 px-5 pt-2">
+          <p class="prod-name">{{movie.name}}</p>
+          <p class="img-wrapper"><img src={{movie.imageUrl}} alt={{movie.name}} (click)="goToProduct(movie)"></p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn" (click)="goToProduct(movie)">Läs mer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

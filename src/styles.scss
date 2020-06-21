@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+$primColor: black;
+
+@mixin font-style {
+  font-family: 'Work Sans', sans-serif;
+}
+
+body {
+  background-color: rgba(216, 112, 147, 0.5);
+  font-family: 'Work Sans', sans-serif;
+}

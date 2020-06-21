@@ -1,0 +1,25 @@
+<h4 class="d-flex justify-content-center pt-5">Featured movies</h4>
+<div class="cont d-flex justify-content-center pt-3">
+  <div class="arrow-left-container">
+    <div style="float: left">
+      <button (click)="scrollLeft()"><i class="fas fa-arrow-left"></i></button>
+    </div>
+  </div>
+  <div class="widget-wrapper" #widgetsContent>
+    <div *ngFor="let movie of movieProducts" class="d-inline">
+      <div *ngFor="let m of movie.productCategory" class="d-inline">
+        <div *ngIf="m.categoryId == 7" class="d-inline">
+          <!-- <span>{{movie.name}}</span> -->
+          <div class="info-widget px-2">
+            <img [src]="movie.imageUrl" alt="movie.name" id="myImage" (error)="imageNotFound($event)"
+              (click)="goToProduct(movie)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-right-container">
+    <div style="float: right">
+      <button (click)="scrollRight()"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>

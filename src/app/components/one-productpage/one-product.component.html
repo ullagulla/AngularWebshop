@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center mt-5" *ngIf="showMovie">
+  <div class="row prod-container d-flex justify-content-center mb-5">
+    <div class="prod-img-wrapper col-12 col-md-6 mb-2 mb-md-0">
+      <img src={{currentMovie.imageUrl}} alt={{currentMovie.name}}>
+    </div>
+    <div class="prod-info col-12 col-md-6">
+      <div class="prod-name mt-3 mt-md-0"> {{currentMovie.name}} </div>
+      <div class="prod-price"> {{currentMovie.price}} SEK </div>
+      <button class="btn add-btn mt-4 w-100 mb-1" (click)="addToCart(currentMovie)">Lägg till i kundvagn</button>
+      <!-- Tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active pl-2"><a data-toggle="tab" href="#description">Beskrivning</a></li>
+        <li class="active"><a data-toggle="tab" href="#delivery">Leverans</a></li>
+        <li class="active pr-2"><a data-toggle="tab" href="#questions">Frågor?</a></li>
+      </ul>
+      <!-- Tab content -->
+      <div class="tab-content">
+        <div id="description" class="tab-pane fade in active">
+          <span>{{currentMovie.description}}</span>
+        </div>
+        <div id="delivery" class="tab-pane fade">
+          <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus ipsum mollitia
+            excepturi obcaecati laudantium. Quaerat laudantium porro modi commodi rem?</span>
+        </div>
+        <div id="questions" class="tab-pane fade">
+          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus earum cupiditate magnam
+            in molestias sed suscipit, reprehenderit officia minima cumque?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

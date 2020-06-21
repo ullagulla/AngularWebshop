@@ -1,0 +1,74 @@
+<!-- <div class="container">
+  <div class="row">
+    <p class="py-3 cart-header text-center col-12">Din varukorg</p>
+    <div *ngFor="let item of itemsInCart" class="cont col-12 d-flex justify-content-between pt-3">
+      <div class="col-4"><p class="img-wrapper px-5"><img src={{item.imageUrl}}></p></div>
+      <p class="col-4 text-center"><span (click)="decreaseInCart(item)">-</span>{{item.quantity}}<span (click)="increaseInCart(item)">+</span></p>
+      <p class="col-4 text-right">{{item.price}} SEK</p>
+    </div>
+    <div *ngIf="itemsInCart.length > 0" class="col-12 d-flex justify-content-between">
+      <p class="col-4"></p>
+      <p class="col-4">Total:</p>
+      <p class="text-center col-4">{{totalPrice}} SEK</p>
+    </div>
+    <div *ngIf="itemsInCart.length > 0" class="col-12 d-flex justify-content-end pb-5">
+      <button (click)="clearCart()">Töm varukorgen</button>
+      <button (click)="goToCheckout()">Gå till kassan</button>
+    </div>
+  </div>
+</div> -->
+
+<div class="container d-flex justify-content-center">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-8 flex-column cart-wrapper mb-4">
+
+      <div class="d-flex divider justify-content-between pb-1 mt-5 mb-3">
+        <div class="">Produkt</div>
+        <div class="pl-4">Antal</div>
+        <div class="">á Pris</div>
+      </div>
+      <div class="no-products-wrapper py-5" *ngIf="itemsInCart.length == 0">
+        Du har inga produkter i din varukorg. Börja shoppa <a href="/products">här</a>
+      </div>
+      <div *ngFor="let item of itemsInCart" class="row cart-product-wrapper mx-0 pb-3" id="cart-wrapper">
+        <div class="cart-product-img-wrapper col-3 px-0">
+          <span class="remove-btn" (click)="removeItemInCart(item)"><i class="fas fa-times"></i></span>
+          <img src="{{item.imageUrl}}" alt="{{item.name}}" class="ml-4" />
+        </div>
+        <div class="cart-product-info col-3 pr-0">
+          <div class="cart-product-name mt-auto">{{item.name}}</div>
+        </div>
+        <div class="col-3 pl-0">
+          <span class="inputs px-1 d-flex justify-content-center">
+            <input type="button" id="button-minus" value="-" class="button-minus btn pl-0 pr-1" data-field="quantity"
+              (click)="decreaseInCart(item)">
+            <input type="number" id="number1" step="1" max="" value="{{item.quantity}}" class="quantity-field"
+              name="quantity">
+            <input type="button" id="button-plus1" value="+" class="button-plus btn p-0" data-field="quantity"
+              (click)="increaseInCart(item)">
+          </span>
+        </div>
+        <div class="col-3 px-0">
+          <div class="cart-product-price mt-auto text-right">{{item.price}} SEK</div>
+        </div>
+      </div>
+      <div class="row mx-0 cart-information">
+        <div class="divider"></div>
+        <div class="col-6 pt-4 price-information pl-0">
+          <p class="prod-info mb-1">Delsumma</p>
+          <p class="prod-info mb-1">Frakt</p>
+          <p class="prod-info font-weight-bold mb-4">Total</p>
+        </div>
+        <div class="col-6 pt-4 pr-0">
+          <p class="prod-info text-right mb-1 subtotal">{{totalPrice}} SEK</p>
+          <p class="prod-info text-right mb-1">0 SEK</p>
+          <p class="prod-info text-right mb-1 total"> {{totalPrice}} SEK</p>
+        </div>
+        <div class="col-12 btn-wrapper px-0">
+          <div class="w-100 d-flex justify-content-end" href="/checkout"><button type="button" class="btn w-50 mt-3"
+              (click)="goToCheckout()">Till kassan</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

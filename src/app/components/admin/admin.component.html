@@ -1,0 +1,8 @@
+<div class="text-center py-5">
+  <h4>Alla ordrar</h4>
+</div>
+<div *ngFor="let order of allOrders">
+  <p>{{order | json }}</p>
+
+  <button (click)="removeOrder(order.id)" class="btn mb-2">Ta bort order</button>
+</div>

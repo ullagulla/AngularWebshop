@@ -1,0 +1,65 @@
+<div class="container d-flex justify-content-center">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-7 checkout-wrapper flex-column">
+      <h5 class="pl-2 mt-5">Dina varor</h5>
+      <div class="divider"></div>
+      <div class="row checkout-product-wrapper mt-3 mx-0 pb-3" *ngFor="let product of checkoutProducts">
+        <div class="checkout-product-img-wrapper col-3 px-0">
+          <img src="{{product.imageUrl}} " alt="{{product.name}}" class="ml-2" />
+        </div>
+        <div class="checkout-product-info col-3 pr-0">
+          <div class="checkout-product-name mt-auto"> {{product.name}} </div>
+        </div>
+        <div class="col-3 pl-0">
+          <span class="product-quantity px-1 d-flex justify-content-center">
+            {{product.quantity}} st
+          </span>
+        </div>
+        <div class="col-3 px-0">
+          <div class="checkout-product-price mt-auto text-right mr-2"> {{product.price}} SEK </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <h5 class="checkout-total ml-2 d-inline">Total</h5>
+        <span class="mr-2"><input name="total" value="<%= total %>" hidden> {{totalPrice}} SEK</span>
+      </div>
+      <h5 class="information pt-4 pl-2 mb-1">Din information</h5>
+      <p class="address-info pl-2">Adressen måste vara inom EU</p>
+      <form [formGroup]="order" (ngSubmit)="save()">
+        <input type="hidden" value="8008" id="companyId" formControlName="companyId">
+        <div class="col-12" formGroupName="customer">
+          <div class="form-row">
+            <div class="form-group col-md-6 m-0 p-0">
+              <input input type="text" id="firstname" formControlName="firstname" class="form-control"
+                placeholder="Förnamn">
+            </div>
+            <div class="form-group col-md-6 m-0 p-0">
+              <input input type="text" id="lastname" formControlName="lastname" class="form-control"
+                placeholder="Efternamn">
+            </div>
+            <div class="form-group col-12 m-0 p-0" formGroupName="address">
+              <input type="text" id="street" formControlName="street" class="form-control" placeholder="Gata">
+            </div>
+            <div class="form-group col-md-6 m-0 p-0" formGroupName="address">
+              <input type="text" id="city" formControlName="city" class="form-control" placeholder="Stad">
+            </div>
+            <div class="form-group col-md-6 m-0 p-0" formGroupName="address">
+              <input type="text" id="zip" formControlName="zip" class="form-control" placeholder="Postnr">
+            </div>
+          </div>
+        </div>
+        <h5 class="ml-2 pt-3">Betalningsmetod</h5>
+        <select class="form-control w-50 p-0 ml-2" type="text" id="paymentmethod" formControlName="paymentmethod">
+          <option value="MasterCard">MasterCard</option>
+          <option value="Visa">Visa</option>
+        </select>
+        <div class="btn-wrapper py-3 d-flex justify-content-end">
+          <div class="col-md-6 d-flex justify-content-between pl-0">
+            <button button type="submit" [disabled]="!order.valid" id="btn"
+              class="btn continue btn-dark w-100 ml-1 mb-4">Lägg beställning</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

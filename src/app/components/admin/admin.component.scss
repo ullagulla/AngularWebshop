@@ -1,0 +1,13 @@
+$primColor: black;
+
+.btn {
+  background-color: transparent !important;
+  border-radius: 0;
+  border: 1px solid $primColor;
+  color: $primColor;
+
+  &:hover {
+    background-color: black !important;
+    color: white;
+  }
+}
